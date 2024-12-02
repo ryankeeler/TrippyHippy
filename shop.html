@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trippy Hippy - Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+    }
+    .product h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shop Our Products</h1>
+  <div id="products"></div>
+  <script>
+    const products = [
+      { name: "Mushroom Culture A", price: "20.00", id: "001" },
+      { name: "Grow Kit B", price: "35.00", id: "002" }
+    ];
+    const productContainer = document.getElementById('products');
+    products.forEach(product => {
+      const productDiv = document.createElement('div');
+      productDiv.classList.add('product');
+      productDiv.innerHTML = `
+        <h2>${product.name}</h2>
+        <p>Price: $${product.price}</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="rdk12121989@gmail.com">
+          <input type="hidden" name="item_name" value="${product.name}">
+          <input type="hidden" name="amount" value="${product.price}">
+          <input type="hidden" name="currency_code" value="USD">
+          <button type="submit">Buy Now</button>
+        </form>
+      `;
+      productContainer.appendChild(productDiv);
+    });
+  </script>
+</body>
+</html>
