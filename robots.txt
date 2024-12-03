@@ -1,0 +1,21 @@
+# Allow all search engines to crawl the entire site
+User-agent: *
+Disallow:
+
+# Point to the XML sitemap for better search engine indexing
+Sitemap: https://trippyhippy.store/sitemap.xml
+
+# Optional: Block specific bot traffic
+# Block bad bots or bots that are not helpful for your site
+User-agent: BadBot
+Disallow: /
+
+# Allow Google Ads bot (if you use Google Ads)
+User-agent: AdsBot-Google
+Disallow:
+
+# Prevent search engines from indexing development-related files (if applicable)
+Disallow: /README.md
+Disallow: /LICENSE
+Disallow: /package.json
+Disallow: /node_modules/
